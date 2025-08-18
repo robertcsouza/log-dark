@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.scss - Dark tokens */
+@import "primeicons/primeicons.css";
+:root,
+[data-theme="dark"] {
+  /* Tokens */
+  --bg-0: #343541; /* fundo principal */
+  --bg-1: #343541; /* toolbar/topbar */
+  --bg-2: #444654; /* cards/painéis */
+  --stroke-1: #565869; /* bordas */
+  --text-1: #ececf1; /* texto principal */
+  --text-2: #9a9b9f; /* texto secundário */
+  --accent-1: #10a37f; /* verde de destaque */
+  --on-accent: #ffffff;
+
+  --link: #7bb0ff;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  /* Mapeia para variáveis comuns dos temas Lara/Aura do PrimeNG */
+  --surface-ground: var(--bg-0);
+  --surface-section: var(--bg-1);
+  --surface-card: var(--bg-2);
+  --text-color: var(--text-1);
+  --text-color-secondary: var(--text-2);
+  --primary-color: var(--accent-1);
+  --primary-contrast: var(--on-accent);
+  --border-color: var(--stroke-1);
+  /* realça seleção/focus com o acento “diluído” */
+  --highlight-bg: color-mix(in srgb, var(--accent-1) 16%, transparent);
+}
+
+html, body {
+  background: var(--bg-0);
+  color: var(--text-1);
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 14px; /* tamanho base, você pode ajustar */
+  --ngx-json-string:#f1fa8c;
+  --ngx-json-number:#ff79c6;
+  --ngx-json-boolean:#50fa7b;
+  --ngx-json-null:#ffb86c;
+  --ngx-json-key:#8be9fd;
+  --ngx-json-null-bg:transparent;
+
+}
+
+:root {
+  --font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+/* Links */
+a { color: var(--link); }
+
+/* Ajustes gerais de inputs/cards/buttons do PrimeNG */
+.p-inputtext, .p-dropdown, .p-multiselect, .p-calendar, .p-password {
+  background: var(--bg-2);
+  border-color: var(--stroke-1);
+  color: var(--text-1);
+}
+.p-inputtext::placeholder { color: var(--text-2); }
+
+.p-card {
+  background: var(--bg-2);
+  border: 1px solid var(--stroke-1);
+  color: var(--text-1);
+}
+
+.p-button {
+  background: var(--accent-1);
+  border-color: var(--accent-1);
+  color: var(--on-accent);
+}
+.p-button:enabled:hover { filter: brightness(1.1); }
+
+
+

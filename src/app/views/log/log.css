@@ -1,0 +1,117 @@
+.table-wrapper {
+  width: 100%;              /* ocupa toda a largura disponível */
+  height: 100%;             /* ocupa toda a altura disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centraliza na horizontal */
+  align-items: start;       /* centraliza na vertical */
+  min-height: calc(100vh - 100px); /* ocupa quase a tela toda, menos toolbar */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.search-container {
+  position: relative;
+  width: 250px;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 2.2rem 0.5rem 0.75rem; /* espaço para o ícone */
+  border-radius: 6px;
+  border: 1px solid var(--stroke-1);
+  background-color: var(--bg-2);
+  color: var(--text-1);
+}
+
+.search-input::placeholder {
+  color: var(--text-2);
+}
+
+.search-icon {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-1);
+  pointer-events: none;
+}
+
+/* Tabela em si */
+:host ::ng-deep .p-datatable {
+  width: 100% !important;
+  height: 100%;
+        /* ocupa toda altura do wrapper */
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--stroke-1);
+  border-radius: 8px;
+  overflow: hidden;      /* ativa scroll vertical e horizontal se necessário */
+}
+
+/* Cabeçalho */
+:host ::ng-deep .p-datatable-thead > tr > th {
+  background-color: var(--bg-1) !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--stroke-1);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.4rem 0.75rem;
+}
+
+/* Corpo */
+:host ::ng-deep .p-datatable-tbody > tr > td {
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--stroke-1);
+  padding: 0.4rem 0.75rem;
+}
+
+/* Hover */
+:host ::ng-deep .p-datatable-tbody > tr:hover > td {
+  background-color: color-mix(in srgb, var(--accent-1) 8%, var(--bg-2)) !important;
+  cursor: pointer;
+}
+
+/* Botão de ação */
+:host ::ng-deep .action-btn {
+  color: var(--accent-1) !important;     /* ícone verde */
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+
+:host ::ng-deep .action-btn:hover {
+  background: color-mix(in srgb, var(--accent-1) 15%, transparent) !important;
+}
+
+:host ::ng-deep .p-paginator {
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+  border-top: 1px solid var(--stroke-1);
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page {
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page.p-highlight {
+  background-color: var(--accent-1) !important;
+  color: var(--on-accent) !important;
+}
+
+:host ::ng-deep .p-select {
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--stroke-1);
+  border-radius: 4px;
+}
+
+:host ::ng-deep .p-select-list-container {
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--stroke-1);
+  border-radius: 4px;
+}
+

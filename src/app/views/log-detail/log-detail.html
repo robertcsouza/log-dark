@@ -1,0 +1,54 @@
+
+<div>
+  <div class="search-bar">
+    <h3>Logs Details</h3>
+    <div class="search-container">
+    <input
+      type="text"
+      placeholder="Pesquisar..."
+
+      (input)="loadMore()"
+      class="search-input"
+    />
+    <i class="pi pi-search search-icon"></i>
+  </div>
+  </div>
+  <div class="detail-container">
+
+  <div class="card-list" infiniteScroll  (scrolled)="onScroll($event)">
+      <div *ngFor="let item of items">
+        <p-card
+      [style]="{
+        'margin-bottom': '0.85rem',
+        'width': '10rem',
+        'cursor': 'pointer',
+        'background-color': item.status === 'success' ? '#2a9d8f' : '#e63946',
+        'color': 'white',
+        'display': 'flex',
+        'flex-direction': 'column',
+        'align-items': 'center',
+        'border': selectedItem?.id === item.id ? '2px solid white' : 'none',
+
+      }"
+      (click)="selectItem(item)"
+      (keydown.enter)="selectItem(item)"
+      (keydown.space)="selectItem(item)"
+    >
+      <div>
+        <p class="title">{{ item.method }}</p>
+        <p class="subtitle">{{ item.path }}</p>
+        <p class="subtitle">{{ item.date }}</p>
+
+      </div>
+    </p-card>
+      </div>
+      <div *ngIf="loading">Carregando...</div>
+    </div>
+
+    <div class="json-viewer" *ngIf="selectedItem">
+
+    <ngx-json-viewer [json]="selectedItem"  [expanded]="true"></ngx-json-viewer>
+  </div>
+</div>
+</div>
+
