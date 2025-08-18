@@ -15,7 +15,8 @@
   </div>
   <div class="detail-container">
 
-  <div class="card-list" infiniteScroll  (scrolled)="onScroll($event)">
+  <div class="card-list" infiniteScroll  [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScroll($event)">
       <div *ngFor="let item of items">
         <p-card
       [style]="{
