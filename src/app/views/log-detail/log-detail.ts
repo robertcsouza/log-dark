@@ -4,6 +4,7 @@ import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { FormsModule } from '@angular/forms';
 export interface LogDetailData {
   id: string;
   method: string;
@@ -21,7 +22,7 @@ export interface LogDetailData {
 
 @Component({
   selector: 'app-log-detail',
-  imports: [CardModule, InfiniteScrollDirective, CommonModule, ButtonModule, NgxJsonViewerModule],
+  imports: [CardModule, InfiniteScrollDirective, CommonModule, ButtonModule, NgxJsonViewerModule,FormsModule],
   templateUrl: './log-detail.html',
   styleUrl: './log-detail.css',
 })
@@ -33,7 +34,7 @@ export class LogDetail implements OnInit {
     this.loadMore();
   }
   selectedItem: LogDetailData | null = null;
-
+  searchTerm = ''
   loadMore(): void {
     const newItems: LogDetailData[] = Array.from({ length: 10 }, (_, i) => ({
       id: `6611d0aa15a351b73b8c186${this.page}${i}`,
@@ -69,4 +70,5 @@ export class LogDetail implements OnInit {
     console.log('Item selecionado:', item);
     this.selectedItem = item;
   }
+  applyFilter(){}
 }

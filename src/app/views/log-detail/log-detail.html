@@ -1,55 +1,40 @@
+<div class="container">
 
-<div>
-  <div class="search-bar">
-    <h3>Logs Details</h3>
-    <div class="search-container">
-    <input
-      type="text"
-      placeholder="Pesquisar..."
+<div class="header-container">
+  <div class="title-container">
+    <h2 class="header-title">System Logs</h2>
+    <p class="header-subtitle">Monitor and analyze application logs</p>
+  </div>
+  <div class="logs-quantity">
+    <div class="badge-log"></div>
+    <p>16 Logs</p>
+  </div>
+</div>
+<div class="card-container">
 
-      (input)="loadMore()"
-      class="search-input"
-    />
-    <i class="pi pi-search search-icon"></i>
+  <div class="card-search-container">
+
+      <div class="search-card">
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Pesquisar..."
+            [(ngModel)]="searchTerm"
+            (input)="applyFilter()"
+            class="search-input"
+          />
+          <i class="pi pi-search search-icon"></i>
+        </div>
+        <p-button class="bt-refresh" icon="pi pi-refresh" severity="secondary" />
+    </div>
   </div>
-  </div>
-  <div class="detail-container">
+
+  <!-- Infinit scroll cards -->
 
   <div class="card-list" infiniteScroll  [infiniteScrollDistance]="2"
-      [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScroll($event)">
-      <div *ngFor="let item of items">
-        <p-card
-      [style]="{
-        'margin-bottom': '0.85rem',
-        'width': '10rem',
-        'cursor': 'pointer',
-        'background-color': item.status === 'success' ? '#2a9d8f' : '#e63946',
-        'color': 'white',
-        'display': 'flex',
-        'flex-direction': 'column',
-        'align-items': 'center',
-        'border': selectedItem?.id === item.id ? '2px solid white' : 'none',
+  [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScroll($event)">
+  <div *ngFor="let item of items">
 
-      }"
-      (click)="selectItem(item)"
-      (keydown.enter)="selectItem(item)"
-      (keydown.space)="selectItem(item)"
-    >
-      <div>
-        <p class="title">{{ item.method }}</p>
-        <p class="subtitle">{{ item.path }}</p>
-        <p class="subtitle">{{ item.date }}</p>
-
-      </div>
-    </p-card>
-      </div>
-      <div *ngIf="loading">Carregando...</div>
-    </div>
-
-    <div class="json-viewer" *ngIf="selectedItem">
-
-    <ngx-json-viewer [json]="selectedItem"  [expanded]="true"></ngx-json-viewer>
-  </div>
-</div>
 </div>
 
+</div>
