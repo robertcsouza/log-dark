@@ -25,16 +25,17 @@
           />
           <i class="pi pi-search search-icon"></i>
         </div>
+        <!-- to spin button pi-spin -->
         <p-button class="bt-refresh" icon="pi pi-refresh" severity="secondary" />
     </div>
   </div>
 
   <!-- Infinit scroll cards -->
-
-  <div class="card-list" infiniteScroll  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScroll($event)">
-  <div *ngFor="let item of items">
-
-</div>
+ <div class="card-list" infiniteScroll  [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScroll($event)">
+      <div *ngFor="let item of items">
+        <app-card></app-card>
+      </div>
+    </div>
 
 </div>
